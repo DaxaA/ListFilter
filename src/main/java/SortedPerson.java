@@ -1,3 +1,4 @@
+
 import perspack.Person;
 import perspack.PersonList;
 
@@ -6,7 +7,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
+/*
 public class SortedPerson {
     private static List<Person> sortedPersonList;
     private static List<SortInfo> sortInfoList;
@@ -27,3 +28,4 @@ public class SortedPerson {
 
     }
 }
+*/
