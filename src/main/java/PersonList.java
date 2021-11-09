@@ -1,8 +1,4 @@
-package perspack;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class PersonList {
     static HashMap<Integer, Person> allPerson;
@@ -16,9 +12,15 @@ public class PersonList {
     public List<Person> getPersonList() {
         return new ArrayList<>(allPerson.values());
     }
+    public List<Person> setPersonList(List<Person> list) {
+        for (int i = 0; i < list.size(); i++) {
+            allPerson.put(i + 1, list.get(i));
+        }
+        return new ArrayList<>(allPerson.values());
+    }
 
     static boolean hasPerson(Person obj) {
-        for (Person person: allPerson.values()) {
+        for (Person person : allPerson.values()) {
             if (person.equals(obj) && person.hashCode() == obj.hashCode()) {
                 return true;
             }

@@ -1,5 +1,3 @@
-package perspack;
-
 import java.util.*;
 
 public class Person {
@@ -22,6 +20,7 @@ public class Person {
     public String getFirstName() {
         return firstName;
     }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -29,6 +28,7 @@ public class Person {
     public String getSecondName() {
         return secondName;
     }
+
     public void setSecondName(String secondName) {
         this.secondName = secondName;
     }
@@ -36,6 +36,7 @@ public class Person {
     public Gen getGender() {
         return gender;
     }
+
     public void setGender(Gen gender) {
         this.gender = gender;
     }
@@ -43,6 +44,7 @@ public class Person {
     public int getYear() {
         return year;
     }
+
     public void setYear(int year) {
         this.year = year;
     }
@@ -64,5 +66,22 @@ public class Person {
         if (obj == null || obj instanceof Person) return false;
         return (gender.equals(((Person) obj).gender))
                 && firstName.equals(((Person) obj).firstName) && secondName.equals(((Person) obj).secondName);
+    }
+
+    public Object getProperty(Field key) {
+        switch (key) {
+            case firstname -> {
+                return firstName;
+            }
+            case secondname -> {
+                return secondName;
+            }
+            case year -> {
+                return year;
+            }
+            default -> {
+                return gender;
+            }
+        }
     }
 }

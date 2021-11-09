@@ -1,9 +1,5 @@
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import perspack.Gen;
-import perspack.Person;
-import perspack.PersonList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +40,7 @@ class PersonTest {
 
     @Test
     public void newPersonNameIsNull() {
-        for (Person person: allPerson.getPersonList()) {
+        for (Person person : allPerson.getPersonList()) {
             if (((person.getFirstName() != null && person.getFirstName().isEmpty())
                     || (person.getSecondName() != null && person.getSecondName().isEmpty()))
                     || person.getFirstName() == null || person.getSecondName() == null) {
@@ -55,7 +51,7 @@ class PersonTest {
 
     @Test
     public void newPersonGenderIsNull() {
-        for (Person person: allPerson.getPersonList()) {
+        for (Person person : allPerson.getPersonList()) {
             if (person.getGender() == null) {
                 fail("Undefined gender!");
             }
@@ -64,7 +60,7 @@ class PersonTest {
 
     @Test
     public void newPersonYearIsNull() {
-        for (Person person: allPerson.getPersonList()) {
+        for (Person person : allPerson.getPersonList()) {
             if (person.getYear() <= 0) {
                 fail("Non-existent year!");
             }
