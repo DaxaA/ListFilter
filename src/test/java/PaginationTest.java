@@ -6,26 +6,23 @@ import static org.junit.jupiter.api.Assertions.*;
 class PaginationTest {
     PersonList pagedPerson;
     PersonList personList = new PersonList();
-    private static Person p1;
-    private static Person p2;
-    private static Person p3;
     @BeforeEach
     void setUp() {
-        p1 = new Person("A", "A", Gen.female, 2001);
-        p2 = new Person("A", "I", Gen.male, 100);
-        p3 = new Person("N", "A", Gen.female, 1);
-        personList.add(p1);
-        personList.add(p2);
-        personList.add(p3);
-        pagedPerson = Pagination.paginationList(1, 3, personList);
+        personList.add(new Person("Nik", "Nos", Gen.male, 2002));
+        personList.add(new Person("Artem", "Iv", Gen.male, 2001));
+        personList.add(new Person("Lena", "Shap", Gen.female, 2006));
+        personList.add(new Person("Dasha", "Iv", Gen.female, 2002));
+        personList.add(new Person("Alex", "Shap", Gen.male, 1999));
+        personList.add(new Person("Sergey", "Cheb", Gen.male, 2000));
+        personList.add(new Person("Lena", "Kor", Gen.male, 1999));
+        personList.add(new Person("Nik", "Shap", Gen.male, 2000));
+        pagedPerson = Pagination.paginationList(2, 3, personList);
     }
 
     @Test
     void truePage() {
-        assertEquals(1, pagedPerson.getPersonList().size());
-        assertEquals("N", pagedPerson.getPersonList().get(0).getFirstName());
-        assertEquals("A", pagedPerson.getPersonList().get(0).getSecondName());
-        assertEquals(Gen.female, pagedPerson.getPersonList().get(0).getGender());
-        assertEquals(1, pagedPerson.getPersonList().get(0).getYear());
+        assertEquals(2, pagedPerson.getPersonList().size());
+        assertEquals("Alex", pagedPerson.getPersonList().get(0).getFirstName());
+        assertEquals("Sergey", pagedPerson.getPersonList().get(1).getFirstName());
     }
 }

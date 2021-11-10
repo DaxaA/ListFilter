@@ -18,16 +18,18 @@ class PersonFilterTest {
 
     @BeforeEach
     void setUp() {
-        p1 = new Person("A", "A", Gen.female, 2001);
-        p2 = new Person("A", "I", Gen.male, 100);
-        p3 = new Person("N", "A", Gen.female, 1);
-        personList.add(p1);
-        personList.add(p2);
-        personList.add(p3);
+        personList.add(new Person("Nik", "Nos", Gen.male, 2002));
+        personList.add(new Person("Artem", "Iv", Gen.male, 2001));
+        personList.add(new Person("Lena", "Shap", Gen.female, 2006));
+        personList.add(new Person("Dasha", "Iv", Gen.female, 2002));
+        personList.add(new Person("Alex", "Shap", Gen.male, 1999));
+        personList.add(new Person("Sergey", "Cheb", Gen.male, 2000));
+        personList.add(new Person("Lena", "Kor", Gen.male, 1999));
+        personList.add(new Person("Nik", "Shap", Gen.male, 2000));
         Map<Field, Object> filterMap = new HashMap<>();
         //filterMap.put(Field.firstname, "A");
-        filterMap.put(Field.secondname, "A");
-        filterMap.put(Field.gender, Gen.female);
+        filterMap.put(Field.secondname, "Shap");
+        filterMap.put(Field.gender, Gen.male);
         //filterMap.put(Field.year, "2001");
         filteredPerson = PersonFilter.personFilter(personList, filterMap);
     }
@@ -35,10 +37,10 @@ class PersonFilterTest {
     @Test
     void listIsFiltered() {
         assertEquals(2, filteredPerson.getPersonList().size());
-        assertEquals("A", filteredPerson.getPersonList().get(0).getSecondName());
-        assertEquals("A", filteredPerson.getPersonList().get(1).getSecondName());
-        assertEquals(Gen.female, filteredPerson.getPersonList().get(0).getGender());
-        assertEquals(Gen.female, filteredPerson.getPersonList().get(1).getGender());
+        assertEquals("Shap", filteredPerson.getPersonList().get(0).getSecondName());
+        assertEquals("Shap", filteredPerson.getPersonList().get(1).getSecondName());
+        assertEquals(Gen.male, filteredPerson.getPersonList().get(0).getGender());
+        assertEquals(Gen.male, filteredPerson.getPersonList().get(1).getGender());
     }
 
 }
