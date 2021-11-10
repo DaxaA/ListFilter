@@ -1,4 +1,7 @@
+import com.sun.java.accessibility.util.AccessibilityListenerList;
+
 import java.util.*;
+import java.util.stream.Stream;
 
 public class PersonList {
     static HashMap<Integer, Person> allPerson;
@@ -17,6 +20,10 @@ public class PersonList {
             id = i+1;
             allPerson.put(id, list.get(i));
         }
+    }
+
+    public HashMap<Integer, Person> getAllPerson() {
+        return allPerson;
     }
 
     static boolean hasPerson(Person obj) {
@@ -38,6 +45,13 @@ public class PersonList {
 
     @Override
     public String toString() {
-        return allPerson.entrySet().toString();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 1; i < allPerson.size()+1; i++) {
+            sb.append(i + ". ");
+            sb.append(allPerson.get(i));
+            sb.append(", ");
+        }
+        sb.deleteCharAt(sb.length() - 1).deleteCharAt(sb.length() - 1);
+        return sb.toString();
     }
 }
