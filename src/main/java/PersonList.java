@@ -3,7 +3,7 @@ import java.util.*;
 public class PersonList {
     static HashMap<Integer, Person> allPerson;
     private static int count = 0;
-    static int number;
+    public int id;
 
     public PersonList() {
         allPerson = new HashMap<>();
@@ -12,11 +12,11 @@ public class PersonList {
     public List<Person> getPersonList() {
         return new ArrayList<>(allPerson.values());
     }
-    public List<Person> setPersonList(List<Person> list) {
+    public void setPersonList(List<Person> list) {
         for (int i = 0; i < list.size(); i++) {
-            allPerson.put(i + 1, list.get(i));
+            id = i+1;
+            allPerson.put(id, list.get(i));
         }
-        return new ArrayList<>(allPerson.values());
     }
 
     static boolean hasPerson(Person obj) {
@@ -30,11 +30,14 @@ public class PersonList {
 
     public void add(Person person) {
         if (!PersonList.hasPerson(person)) {
-            PersonList.count++;
-            PersonList.number = PersonList.count;
-            PersonList.allPerson.put(PersonList.number, person);
+            count++;
+            id = count;
+            PersonList.allPerson.put(id, person);
         }
     }
 
-
+    @Override
+    public String toString() {
+        return allPerson.entrySet().toString();
+    }
 }

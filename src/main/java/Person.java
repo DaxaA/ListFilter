@@ -4,12 +4,12 @@ public class Person {
     private String firstName;
     private String secondName;
     private Gen gender;
-    private int year;
+    private Integer year;
 
-    public Person(String firstName, String secondName, Gen gender, int year) {
+    public Person(String firstName, String secondName, Gen gender, Integer year) {
         if ((firstName == null || !firstName.isEmpty())
                 || (secondName == null || !secondName.isEmpty())
-                && gender != null && year > 0) {
+                && gender != null) {
             this.firstName = firstName;
             this.secondName = secondName;
             this.gender = gender;
@@ -41,18 +41,18 @@ public class Person {
         this.gender = gender;
     }
 
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 
     @Override
     public String toString() {
-        return PersonList.number + ". " + firstName + " " +
-                secondName + ": gen - " + gender + ", year - " + year + ";";
+        return firstName + " " +
+                secondName + ": gen - " + gender + ", year - " + year;
     }
 
     @Override
@@ -69,19 +69,14 @@ public class Person {
     }
 
     public Object getProperty(Field key) {
-        switch (key) {
-            case firstname -> {
-                return firstName;
-            }
-            case secondname -> {
-                return secondName;
-            }
-            case year -> {
-                return year;
-            }
-            default -> {
-                return gender;
-            }
+        if (key == Field.year) {
+            return year;
+        } else if (key == Field.secondname) {
+            return secondName;
+        }  else if (key == Field.gender) {
+            return gender;
+        } else {
+            return firstName;
         }
     }
 }

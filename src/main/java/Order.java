@@ -1,3 +1,3 @@
 public enum Order {
-    ascending, descending;
+    ascending, descending
 }
