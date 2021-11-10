@@ -21,32 +21,16 @@ public class Person {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getSecondName() {
         return secondName;
-    }
-
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
     }
 
     public Gen getGender() {
         return gender;
     }
 
-    public void setGender(Gen gender) {
-        this.gender = gender;
-    }
-
     public Integer getYear() {
         return year;
-    }
-
-    public void setYear(Integer year) {
-        this.year = year;
     }
 
     @Override
@@ -64,8 +48,9 @@ public class Person {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || obj instanceof Person) return false;
-        return (gender.equals(((Person) obj).gender))
-                && firstName.equals(((Person) obj).firstName) && secondName.equals(((Person) obj).secondName);
+        Person person = (Person) obj;
+        return (gender.equals(person.gender))
+                && firstName.equals(person.firstName) && secondName.equals(person.secondName);
     }
 
     public Object getProperty(Field key) {

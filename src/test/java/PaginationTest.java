@@ -16,11 +16,11 @@ class PaginationTest {
         personList.add(new Person("Sergey", "Cheb", Gen.male, 2000));
         personList.add(new Person("Lena", "Kor", Gen.male, 1999));
         personList.add(new Person("Nik", "Shap", Gen.male, 2000));
-        pagedPerson = Pagination.paginationList(2, 3, personList);
     }
 
     @Test
     void truePage() {
+        pagedPerson = Pagination.paginationList(2, 3, personList);
         assertEquals(2, pagedPerson.getPersonList().size());
         assertEquals("Alex", pagedPerson.getPersonList().get(0).getFirstName());
         assertEquals("Sergey", pagedPerson.getPersonList().get(1).getFirstName());

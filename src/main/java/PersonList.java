@@ -19,10 +19,6 @@ public class PersonList {
         }
     }
 
-    public HashMap<Integer, Person> getAllPerson() {
-        return allPerson;
-    }
-
     static boolean hasPerson(Person obj) {
         for (Person person : allPerson.values()) {
             if (person.equals(obj) && person.hashCode() == obj.hashCode()) {
@@ -44,7 +40,7 @@ public class PersonList {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (int i = 1; i < allPerson.size()+1; i++) {
-            sb.append(i + ". ");
+            sb.append(i).append(". ");
             sb.append(allPerson.get(i));
             sb.append(", ");
         }

@@ -11,32 +11,32 @@ class MainTest {
     PersonList sortedPerson;
     PersonList pagedPerson;
     PersonList personList = new PersonList();
+    Map<Field, Object> filterMap = new HashMap<>();
+    Map<Field, Ord> sortMap = new HashMap<>();
 
     @BeforeEach
     void setUp() {
         personList.add(new Person("Nik", "Nos", Gen.male, 2002));
         personList.add(new Person("Artem", "Iv", Gen.male, 2001));
-        personList.add(new Person("Lena", "Shap", Gen.female, 2006));
+        personList.add(new Person("Lena", "Shape", Gen.female, 2006));
         personList.add(new Person("Dasha", "Iv", Gen.female, 2002));
-        personList.add(new Person("Alex", "Shap", Gen.male, 1999));
-        personList.add(new Person("Sergey", "Cheb", Gen.male, 2000));
+        personList.add(new Person("Alex", "Shape", Gen.male, 1999));
+        personList.add(new Person("Sergey", "Che", Gen.male, 2000));
         personList.add(new Person("Lena", "Kor", Gen.male, 1999));
-        personList.add(new Person("Nik", "Shap", Gen.male, 2000));
-        Map<Field, Object> filterMap = new HashMap<>();
-        filterMap.put(Field.secondname, "Shap");
+        personList.add(new Person("Nik", "Shape", Gen.male, 2000));
+        filterMap.put(Field.secondname, "Shape");
         filterMap.put(Field.gender, Gen.male);
-        filteredPerson = PersonFilter.personFilter(personList, filterMap);
-        Map<Field, Ord> sortMap = new HashMap<>();
         sortMap.put(Field.firstname, Ord.descending);
-        sortedPerson = PersonSort.personSort(filteredPerson, sortMap);
-        pagedPerson = Pagination.paginationList(1, 2, sortedPerson);
     }
 
     @Test
     void listIsReady() {
+        filteredPerson = PersonFilter.personFilter(personList, filterMap);
+        sortedPerson = PersonSort.personSort(filteredPerson, sortMap);
+        pagedPerson = Pagination.paginationList(1, 2, sortedPerson);
         assertEquals(1, pagedPerson.getPersonList().size());
         assertEquals("Alex", pagedPerson.getPersonList().get(0).getFirstName());
-        assertEquals("Shap", pagedPerson.getPersonList().get(0).getSecondName());
+        assertEquals("Shape", pagedPerson.getPersonList().get(0).getSecondName());
         assertEquals(Gen.male, pagedPerson.getPersonList().get(0).getGender());
         assertEquals(1999, pagedPerson.getPersonList().get(0).getYear());
     }

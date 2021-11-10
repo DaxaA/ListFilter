@@ -16,7 +16,7 @@ class PersonTest {
     public void setUp() {
         p1 = (new Person("Nik", "Nos", Gen.male, 2002));
         p2 = (new Person("Artem", "Iv", Gen.male, 2001));
-        p3 = (new Person("Lena", "Shap", Gen.female, 2006));
+        p3 = (new Person("Lena", "Shape", Gen.female, 2006));
         personList.add(p1);
         personList.add(p2);
         personList.add(p3);
