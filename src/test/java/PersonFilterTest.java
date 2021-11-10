@@ -33,7 +33,7 @@ class PersonFilterTest {
 
     @Test
     void listIsFiltered() {
-        assertEquals(2, filteredPerson.id);
+        assertEquals(2, filteredPerson.getPersonList().size());
         assertEquals("A", filteredPerson.getPersonList().get(0).getSecondName());
         assertEquals("A", filteredPerson.getPersonList().get(1).getSecondName());
         assertEquals(Gen.female, filteredPerson.getPersonList().get(0).getGender());

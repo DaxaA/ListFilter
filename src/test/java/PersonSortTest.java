@@ -28,6 +28,7 @@ class PersonSortTest {
     }
     @Test
     void sortForYearAfterFirstName() {
+        assertEquals(3, sortedPerson.getPersonList().size());
         assertEquals("I", sortedPerson.getPersonList().get(0).getSecondName());
         assertEquals("A", sortedPerson.getPersonList().get(1).getSecondName());
         assertEquals("A", sortedPerson.getPersonList().get(2).getSecondName());
