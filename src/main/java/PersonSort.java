@@ -18,7 +18,7 @@ public class PersonSort {
         }
         PersonList sortedList = new PersonList();
         sortedList.setPersonList(sorted);
-        System.out.println(sortedList);
+        //System.out.println(sortedList);
         return sortedList;
     }
 

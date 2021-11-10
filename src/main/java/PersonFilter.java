@@ -13,7 +13,7 @@ public class PersonFilter {
                 .filter(multipleFilter).collect(Collectors.toList());
         PersonList filteredPerson = new PersonList();
         filteredPerson.setPersonList(filtered);
-        System.out.println(filteredPerson);
+        //System.out.println(filteredPerson);
         return filteredPerson;
     }
 

@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PersonFilterTest {
     PersonList filteredPerson;
+    PersonList pagedPerson;
     PersonList personList = new PersonList();
     private static Person p1;
     private static Person p2;

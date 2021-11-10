@@ -1,7 +1,4 @@
-import com.sun.java.accessibility.util.AccessibilityListenerList;
-
 import java.util.*;
-import java.util.stream.Stream;
 
 public class PersonList {
     static HashMap<Integer, Person> allPerson;
