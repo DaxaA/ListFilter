@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PaginationTest {
     PersonList pagedPerson;
     PersonList personList = new PersonList();
+
     @BeforeEach
     void setUp() {
         personList.add(new Person("Nik", "Nos", Gen.male, 2002));
@@ -20,9 +21,10 @@ class PaginationTest {
 
     @Test
     void truePage() {
-        pagedPerson = Pagination.paginationList(2, 3, personList);
-        assertEquals(2, pagedPerson.getPersonList().size());
-        assertEquals("Alex", pagedPerson.getPersonList().get(0).getFirstName());
-        assertEquals("Sergey", pagedPerson.getPersonList().get(1).getFirstName());
+        pagedPerson = Pagination.paginationList(3, 2, personList);
+        assertEquals(3, pagedPerson.getPersonList().size());
+        assertEquals("Dasha", pagedPerson.getPersonList().get(0).getFirstName());
+        assertEquals("Alex", pagedPerson.getPersonList().get(1).getFirstName());
+        assertEquals("Sergey", pagedPerson.getPersonList().get(2).getFirstName());
     }
 }
