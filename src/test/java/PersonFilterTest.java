@@ -34,9 +34,10 @@ class PersonFilterTest {
     @Test
     void listIsFiltered() {
         assertEquals(2, filteredPerson.id);
-        //assertEquals(Gen.female, filteredPerson.get(0).getGender());
-        //assertEquals(2001, filteredPerson.get(0).getYear());
-        //assertEquals(Gen.female, filteredPerson.get(1).getGender());
+        assertEquals("A", filteredPerson.getPersonList().get(0).getSecondName());
+        assertEquals("A", filteredPerson.getPersonList().get(1).getSecondName());
+        assertEquals(Gen.female, filteredPerson.getPersonList().get(0).getGender());
+        assertEquals(Gen.female, filteredPerson.getPersonList().get(1).getGender());
     }
 
 }
