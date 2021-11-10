@@ -1,3 +1,3 @@
-public enum Order {
+public enum Ord {
     ascending, descending
 }
