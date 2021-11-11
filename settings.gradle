@@ -1,2 +1,3 @@
 rootProject.name = 'ListFilter'
 
+// Название артефакта не нужно делать в CamelCase, лучше так - list-filter
